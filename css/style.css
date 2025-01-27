@@ -1,62 +1,73 @@
-html{
+html {
     box-sizing: border-box;
-    font-size: 62.5%; /*Reset para rems 62.5% = 10px de 16px */
+    font-size: 62.5%;
+    /*Reset para rems 62.5% = 10px de 16px */
 }
-*, *:before, *:after{
+
+*,
+*:before,
+*:after {
     box-sizing: inherit;
 }
-body{
+
+body {
     font-family: 'Lato', sans-serif;
     font-size: 1.6rem;
     line-height: 3.5rem;
 }
 
 /* Globales */
-img{
+img {
     max-width: 100%;
 }
 
-.contenedor{
-    max-width: 120rem /* = 1200px */;
+.contenedor {
+    max-width: 120rem
+        /* = 1200px */
+    ;
     margin: 0 auto 0 auto;
 }
 
-h1{
+h1 {
     font-size: 3.8rem;
 }
 
-h2{
+h2 {
     font-size: 3.4rem;
 }
 
-h3{
+h3 {
     font-size: 3rem;
 }
 
-h4{
+h4 {
     font-size: 2.6rem;
 }
 
 /* Utilidades */
-.seccion{
+.seccion {
     margin-top: 2rem;
     margin-bottom: 2rem;
 }
-.fw-300{
+
+.fw-300 {
     font-weight: 300;
 }
-.centrar-texto{
+
+.centrar-texto {
     text-align: center;
 }
-.d-block{
-    display: block!important;
+
+.d-block {
+    display: block !important;
 }
-.contenido-centrado{
+
+.contenido-centrado {
     max-width: 800px;
 }
 
 /* Botones */
-.boton{
+.boton {
     color: white;
     font-weight: 700;
     text-decoration: none;
@@ -66,97 +77,173 @@ h4{
     display: inline-block;
     text-align: center;
 }
-.boton-amarillo{
+
+.boton-amarillo {
     background-color: #E08709;
 }
-.boton-verde{
+
+.boton-verde {
     background-color: #71B100;
 }
 
 /* Header */
-.site-header{
+.site-header {
     background-color: #333333;
     padding: 1rem 0 3rem 0;
 }
-.site-header.inicio{
+
+.site-header.inicio {
     background: url(../img/header.jpg);
     background-position: center center;
     background-size: cover;
     height: 100vh;
     min-height: 60rem;
 }
-.contenido-header{
-    height: 100%; /*Llena la altura del padre*/
+
+.contenido-header {
+    height: 100%;
+    /*Llena la altura del padre*/
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 }
-.contenido-header h1{
+
+.contenido-header h1 {
     color: white;
     padding-bottom: 2rem;
     max-width: 60rem;
     line-height: 2;
+    text-align: center;
 }
-.barra{
+
+@media (min-width:480px) {
+    .contenido-header h1 {
+        text-align: left;
+    }
+}
+
+@media (min-width:768px) {
+    .contenido-header h1 {
+        text-align: left;
+    }
+}
+
+.barra {
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
     align-items: center;
     padding-top: 3rem;
 }
+
+@media (min-width:480px) {
+    .barra {
+        flex-direction: row;
+        margin: 0 25px;
+    }
+}
+
+@media (min-width:768px) {
+    .barra {
+        flex-direction: row;
+        margin: 0;
+    }
+}
+
 /* Nav */
-.navegacion a{
+.navegacion a {
     color: white;
     text-decoration: none;
-    font-size: 1.8rem /* = 18px */;
+    font-size: 1.8rem
+        /* = 18px */
+    ;
     margin-right: 2rem;
 }
-.navegacion a:hover{ /* pseudoselector */
+
+.navegacion a:hover {
+    /* pseudoselector */
     color: black;
 }
-.navegacion a:last-of-type{
+
+.navegacion a:last-of-type {
     margin-right: 0px;
 }
 
 /* Icono-nosotros */
-.iconos-nosotros{
+.iconos-nosotros {
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
 }
-.icono{
+
+@media (min-width:480px) {
+    .iconos-nosotros {
+        flex-direction: column;
+    }
+}
+
+@media (min-width:768px) {
+    .iconos-nosotros {
+        flex-direction: row;
+    }
+}
+
+.icono {
     flex-basis: calc(33.3% - 1rem);
     text-align: center;
 }
-.icono h3{
+
+.icono h3 {
     text-transform: uppercase;
-} 
+}
 
 /* Anuncios */
-.contenedor-anuncios{
+.contenedor-anuncios {
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
-    flex-wrap: wrap; /* (Este añadido corresponde a la pagina ANUNCIOS) Va necesariamente en el padre*/
+    flex-wrap: wrap;
+    /* (Este añadido corresponde a la pagina ANUNCIOS) Va necesariamente en el padre*/
 }
-.anuncio{
-    flex-grow: 0; /* (Este añadido corresponde a la pagina ANUNCIOS) Si el contenido puede va a crecer */
-    flex-shrink: 0; /* (Este añadido corresponde a la pagina ANUNCIOS) No se encoje la imagen siempre coje el flex-basis*/
+
+@media (min-width: 480px) {
+    .contenedor-anuncios {
+        flex-direction: column;
+    }
+}
+
+@media (min-width: 768px) {
+    .contenedor-anuncios {
+        flex-direction: row;
+    }
+}
+
+.anuncio {
+    flex-grow: 0;
+    /* (Este añadido corresponde a la pagina ANUNCIOS) Si el contenido puede va a crecer */
+    flex-shrink: 0;
+    /* (Este añadido corresponde a la pagina ANUNCIOS) No se encoje la imagen siempre coje el flex-basis*/
     /* Este propiedad flex-shrink va en el hijo pues aqui es donde defino el tamaño de los anuncios (flex-basis) */
     flex-basis: calc(33.3% - 1rem);
     /*flex: 0 0 calc(33.3% - 1rem);  formato abreviado de los 3 de arriba */
     border: 1px solid #b5b5b5;
     background-color: #f5f5f5;
-    margin-bottom: 2rem; /* (Este añadido corresponde a la pagina ANUNCIOS) */
+    margin-bottom: 2rem;
+    /* (Este añadido corresponde a la pagina ANUNCIOS) */
 }
-.contenido-anuncio{
+
+.contenido-anuncio {
     padding: 2rem;
 }
-.contenido-anuncio h3, .contenido-anuncio p{
+.contenido-anuncio h3,
+.contenido-anuncio p {
     margin: 0;
 }
-.precio{
+.precio {
     color: #71B100;
     font-weight: 700;
 }
-.iconos-caracteristicas{
+.iconos-caracteristicas {
     list-style: none;
     padding: 0;
     display: flex;
@@ -164,20 +251,47 @@ h4{
     flex: 1;
     max-width: 500px;
 }
-.iconos-caracteristicas li{
+
+@media (min-width: 768px) and (max-width: 1024px) {
+    .iconos-caracteristicas{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+.iconos-caracteristicas li {
     /*flex: 1;*/
     display: flex;
 }
-.iconos-caracteristicas li img{
+@media (min-width: 768px) and (max-width: 1024px) {
+    .iconos-caracteristicas li{
+        gap: 2rem;
+        margin-bottom: 15px;
+        align-items: center;
+    }
+    .iconos-caracteristicas li:last-of-type{
+        margin-bottom: 0;
+    }
+}
+
+.iconos-caracteristicas li img {
     margin-right: 2rem;
 }
-.ver-todas{
+
+@media (min-width: 768px) and (max-width: 1024px) {
+    .iconos-caracteristicas li img {
+        margin-right: 0;
+    }
+}
+
+.ver-todas {
     display: flex;
     justify-content: flex-end;
 }
 
 /* Contacto Home */
-.imagen-contacto{
+.imagen-contacto {
     background-image: url(../img/encuentra.jpg);
     background-position: center center;
     background-size: cover;
@@ -185,48 +299,79 @@ h4{
     display: flex;
     align-items: center;
 }
-.contenido-contacto{
+
+.contenido-contacto {
     flex: 1;
     color: white;
 }
-.contenido-contacto p{
+
+.contenido-contacto p {
     font-size: 1.8rem;
 }
 
 /* Seccion inferior */
-.seccion-inferior{
+.seccion-inferior {
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
 }
-.seccion-inferior .blog{
+@media (min-width: 480px) {
+    .seccion-inferior {
+        flex-direction: column;
+    }
+}
+@media (min-width: 768px) {
+    .seccion-inferior {
+        flex-direction: row;
+    }
+}
+@media (min-width: 768px) and (max-width:1024px){
+    .seccion-inferior {
+        flex-direction: column;
+    }
+}
+
+.seccion-inferior .blog {
     flex-basis: 60%;
 }
-.seccion-inferior .testimoniales{
+
+.seccion-inferior .testimoniales {
     flex-basis: calc(40% - 2rem);
 }
-.entrada-blog{
+
+.entrada-blog {
     display: flex;
     justify-content: space-between;
     margin-bottom: 2rem;
 }
-.entrada-blog:last-of-type{
+@media (max-width: 480px) {
+    .entrada-blog {
+        flex-direction: column;
+    }
+}
+.entrada-blog:last-of-type {
     margin-bottom: 0;
 }
-.entrada-blog .imagen{
+
+.entrada-blog .imagen {
     flex-basis: 40%;
 }
-.entrada-blog .texto-entrada{
+
+.entrada-blog .texto-entrada {
     flex-basis: calc(60% - 3rem);
 }
-.texto-entrada a{
+
+.texto-entrada a {
     color: black;
     text-decoration: none;
 }
-.texto-entrada h4{
+
+.texto-entrada h4 {
     margin: 0;
     line-height: 1.4;
 }
-.texto-entrada h4::after{
+
+.texto-entrada h4::after {
     content: '';
     display: block;
     width: 15rem;
@@ -234,22 +379,25 @@ h4{
     background-color: #71B100;
     margin-top: 1rem;
 }
-.texto-entrada span{
+
+.texto-entrada span {
     color: #E08709;
 }
 
 /* Testimoniales */
-.testimonial{
+.testimonial {
     background-color: #71B100;
     font-size: 2.4rem;
     padding: 2rem;
     color: white;
     border-bottom-left-radius: 13rem;
 }
-.testimonial p{
+
+.testimonial p {
     text-align: right;
 }
-.testimonial blockquote::before{
+
+.testimonial blockquote::before {
     content: '';
     background-image: url(../img/comilla.svg);
     width: 4rem;
@@ -257,47 +405,78 @@ h4{
     position: absolute;
     left: -2rem;
 }
-.testimonial blockquote{
+
+.testimonial blockquote {
     position: relative;
     padding-left: 5rem;
     font-weight: 300;
 }
 
 /* Footer */
-.site-footer{
+.site-footer {
     background-color: #333333;
     margin: 0;
 }
-.contenedor-footer{
+
+.contenedor-footer {
     padding: 3rem 0;
     display: flex;
+    flex-direction: column;
+    align-items: center;
     justify-content: space-between;
 }
-.copyright{
+@media (min-width: 480px) and (max-width:768px) {
+    .contenedor-footer{
+        flex-direction: row;
+    }
+}
+@media (min-width: 768px) {
+    .contenedor-footer{
+        flex-direction: row;
+    }
+}
+.copyright {
     margin: 0;
     color: white;
 }
 
 /* INTERNAS */
 /* NOSOTROS */
-.contenido-nosotros{
+.contenido-nosotros {
     display: grid;
-    grid-template-columns: 50% 50%; /*Tambien vale repeat(2, 1fr)*/ 
+    grid-template-columns: 50% 50%;
+    /*Tambien vale repeat(2, 1fr)*/
     grid-column-gap: 2rem;
 }
-.texto-nosotros blockquote{
+@media (max-width: 480px) {
+    .contenido-nosotros{
+        display: flex;
+        flex-direction: column;
+    }
+}
+@media (min-width: 768px) and (max-width:1024px){
+    .contenido-nosotros{
+        display: flex;
+        flex-direction: column;
+    }
+}
+.texto-nosotros blockquote {
     font-weight: 900;
     font-size: 2rem;
     margin: 0;
+    text-align: center;
     padding: 2rem 0 3rem 0;
 }
-.texto-nosotros p{
+
+.texto-nosotros p {
     text-align: justify;
 }
 
 /* ANUNCIO */
-.resumen-propiedad{
+.resumen-propiedad {
     display: flex;
-    justify-content: space-between; /*Alinia horizontalmente*/
-    align-items: center; /*Alinia verticalmente*/
+    justify-content: space-between;
+    /*Alinia horizontalmente*/
+    align-items: center;
+    /*Alinia verticalmente*/
 }
